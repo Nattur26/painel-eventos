@@ -1,0 +1,19 @@
+# Painel Eventos Online
+
+Este projeto publica o painel HTML e usa uma Netlify Function para buscar a planilha XLSX a partir de um link público do OneDrive pessoal.
+
+## Antes de publicar
+
+1. No OneDrive, compartilhe a planilha como **Qualquer pessoa com o link — Pode exibir**.
+2. Copie o link de compartilhamento.
+3. No Netlify, crie a variável de ambiente:
+   - Nome: `ONEDRIVE_FILE_URL`
+   - Valor: o link do OneDrive.
+4. Publique o projeto.
+5. Abra a URL do site e teste.
+
+## Segurança
+
+O método usado aqui depende de o arquivo Excel ser acessível por link público. Portanto, **não use este método para uma planilha que contenha dados que não possam ser expostos a qualquer pessoa que obtenha o link**. O painel pode ocultar o Excel do usuário final, mas o arquivo-fonte continua acessível pelo link do OneDrive.
+
+Para dados realmente restritos, a arquitetura recomendada é Microsoft 365/SharePoint com autenticação, ou outro backend autenticado.
